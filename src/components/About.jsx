@@ -46,10 +46,10 @@ const About = () => {
   ];
 
   const stats = [
-    { icon: <Award className="w-6 h-6" />, label: "Years Experience", value: "5+" },
-    { icon: <Code className="w-6 h-6" />, label: "Projects Completed", value: "50+" },
-    { icon: <Coffee className="w-6 h-6" />, label: "Cups of Coffee", value: "1000+" },
-    { icon: <Users className="w-6 h-6" />, label: "Happy Clients", value: "25+" }
+    { icon: <Award className="w-6 h-6" />, label: "Hack Horizon (Google DevOps Ranchi)", value: "6th Rank" },
+    { icon: <Code className="w-6 h-6" />, label: "Projects Completed", value: "5+" },
+    { icon: <Coffee className="w-6 h-6" />, label: "Cups of Coffee", value: "100+" },
+    { icon: <Users className="w-6 h-6" />, label: "Happy Clients", value: "0" }
   ];
 
   return (
@@ -58,7 +58,7 @@ const About = () => {
         <div className="text-center mb-16 scroll-animate">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">About Me</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I'm a passionate developer with 5+ years of experience creating digital solutions
+            I'm a passionate developer with 1+ years of experience creating digital solutions
             that make a difference. I love turning complex problems into simple, beautiful designs.
           </p>
         </div>

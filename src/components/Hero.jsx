@@ -48,7 +48,7 @@ const Hero = () => {
           <div className="mb-8 relative">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-xl animate-pulse"></div>
             <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
+              src="src\assets\futuristic-robot-listening-music-headphones.jpg"
               alt="Profile"
               className="w-32 h-32 rounded-full mx-auto mb-6 shadow-2xl animate-float relative z-10 border-4 border-blue-500/30"
             />
@@ -87,10 +87,15 @@ const Hero = () => {
             <a href="#contact" className="btn-secondary">
               Get In Touch
             </a>
-            <button className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-all duration-300 px-4 py-2 rounded-lg hover:bg-gray-800/50">
-              <Download size={20} />
-              Download CV
-            </button>
+            <a
+               href="/sachin.pdf"
+               download
+               className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-all duration-300 px-4 py-2 rounded-lg hover:bg-gray-800/50"
+            >             
+               <Download size={20} />
+               Download CV
+            </a>
+
           </div>
           
           <div className="animate-bounce">

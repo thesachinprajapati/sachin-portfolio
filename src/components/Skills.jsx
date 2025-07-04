@@ -28,7 +28,6 @@ const Skills = () => {
       skills: [
         { name: "React", level: 90 },
         { name: "JavaScript", level: 95 },
-        { name: "TypeScript", level: 85 },
         { name: "CSS/SCSS", level: 90 },
         { name: "Tailwind CSS", level: 88 }
       ]
@@ -41,7 +40,7 @@ const Skills = () => {
         { name: "Python", level: 80 },
         { name: "Express.js", level: 85 },
         { name: "MongoDB", level: 75 },
-        { name: "PostgreSQL", level: 70 }
+        { name: "MySQL", level: 70 }
       ]
     },
     {
@@ -49,7 +48,6 @@ const Skills = () => {
       icon: "🛠️",
       skills: [
         { name: "Git", level: 90 },
-        { name: "Docker", level: 75 },
         { name: "AWS", level: 70 },
         { name: "Figma", level: 85 },
         { name: "Photoshop", level: 80 }
