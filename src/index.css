@@ -488,3 +488,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #2563eb, #7c3aed);
 }
+
+*{
+   font-family: "Shadows Into Light", cursive;
+}
+
+
+
+

@@ -1,6 +1,16 @@
-import { Github, Linkedin, Mail, Heart, Eye, Globe, Code, Sparkles } from 'lucide-react';
-import useVisitorInfo from '../hooks/useVisitorInfo';
-import { useEffect } from 'react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Heart,
+  Eye,
+  Globe,
+  Code,
+  Sparkles,
+} from "lucide-react";
+import useVisitorInfo from "../hooks/useVisitorInfo";
+import { useEffect } from "react";
+
 
 const Footer = () => {
   useEffect(() => {
@@ -8,14 +18,16 @@ const Footer = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
+            entry.target.classList.add("animate-in");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
+    const elements = document.querySelectorAll(
+      ".scroll-animate, .scroll-animate-left, .scroll-animate-right"
+    );
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -29,7 +41,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: <Github size={20} />, href: "#", label: "GitHub" },
     { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Mail size={20} />, href: "#", label: "Email" }
+    { icon: <Mail size={20} />, href: "#", label: "Email" },
   ];
 
   const quickLinks = [
@@ -37,7 +49,7 @@ const Footer = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" }
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -51,14 +63,14 @@ const Footer = () => {
                 <Eye className="text-blue-400" size={20} />
                 <span className="text-gray-300">Visitors:</span>
                 <span className="text-white font-semibold bg-blue-500/20 px-2 py-1 rounded backdrop-blur-sm">
-                  {loading ? '...' : visitorCount.toLocaleString()}
+                  {loading ? "..." : visitorCount.toLocaleString()}
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Globe className="text-green-400" size={20} />
                 <span className="text-gray-300">Your IP:</span>
                 <span className="text-white font-mono text-sm bg-gray-700/30 px-2 py-1 rounded border border-white/10 backdrop-blur-sm">
-                  {loading ? 'Loading...' : ip}
+                  {loading ? "Loading..." : ip}
                 </span>
               </div>
             </div>
@@ -74,26 +86,31 @@ const Footer = () => {
           <div className="space-y-4 scroll-animate-left">
             <div className="flex items-center space-x-2">
               <Code className="text-blue-400 w-8 h-8" />
-              <h3 className="text-2xl font-bold gradient-text">Sachin Prajapati</h3>
+              <h3 className="text-2xl font-bold gradient-text">
+                Sachin Prajapati
+              </h3>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Full Stack Developer passionate about creating innovative digital solutions 
-              that make a positive impact on people's lives.
+              Full Stack Developer passionate about creating innovative digital
+              solutions that make a positive impact on people's lives.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="text-gray-400 hover:text-blue-400 transition-all duration-300 p-2 rounded-full hover:bg-white/5 transform hover:scale-110 backdrop-blur-sm"
-                >
-                  {link.icon}
-                </a>
-              ))}
+            <div className="flex ">
+              <div className="flex gap-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/15 rounded-full">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    aria-label={link.label}
+                    className="group relative flex items-center justify-center p-2 text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:-translate-y-1 hover:scale-110">
+                    {link.icon}
+                    <span className="absolute bottom-full mb-2 px-2 py-1 text-xs text-white bg-black/80 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                      {link.label}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-
           {/* Quick Links */}
           <div className="space-y-4 scroll-animate">
             <h4 className="text-lg font-semibold text-gray-100">Quick Links</h4>
@@ -102,8 +119,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                  >
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
                     {link.name}
                   </a>
                 </li>
@@ -113,7 +129,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4 scroll-animate-right">
-            <h4 className="text-lg font-semibold text-gray-100">Get In Touch</h4>
+            <h4 className="text-lg font-semibold text-gray-100">
+              Get In Touch
+            </h4>
             <div className="space-y-2 text-gray-400">
               <p>Bokaro Steel City</p>
               <p className="text-blue-400">sachink09053@gmail.com</p>
@@ -125,7 +143,9 @@ const Footer = () => {
               </p>
               <div className="flex items-center mt-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-sm text-green-400">Currently available</span>
+                <span className="text-sm text-green-400">
+                  Currently available
+                </span>
               </div>
             </div>
           </div>
@@ -137,7 +157,9 @@ const Footer = () => {
               © {currentYear} Sachin Prajapati. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm flex items-center mt-4 md:mt-0">
-              Made with <Heart size={16} className="text-red-500 mx-1 animate-pulse" /> using React & Tailwind CSS
+              Made with{" "}
+              <Heart size={16} className="text-red-500 mx-1 animate-pulse" />{" "}
+              using React & CSS
             </p>
           </div>
         </div>
