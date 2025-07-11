@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import useVisitorInfo from "../hooks/useVisitorInfo";
 import { useEffect } from "react";
-
+import Magnet from "./Magnet";
 
 const Footer = () => {
   useEffect(() => {
@@ -95,6 +95,7 @@ const Footer = () => {
               solutions that make a positive impact on people's lives.
             </p>
             <div className="flex ">
+              <Magnet padding={50} disabled={false} magnetStrength={50}>
               <div className="flex gap-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/15 rounded-full">
                 {socialLinks.map((link, index) => (
                   <a
@@ -109,6 +110,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+              </Magnet>
             </div>
           </div>
           {/* Quick Links */}
