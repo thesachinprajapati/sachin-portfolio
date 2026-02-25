@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { send } from '@emailjs/browser';
 
 const Contact = () => {
   useEffect(() => {
@@ -29,6 +30,15 @@ const Contact = () => {
     message: ''
   });
 
+  // Read EmailJS config from Vite environment variables.
+  // Create a `.env` file at the project root with these keys (and restart the dev server):
+  // VITE_EMAILJS_SERVICE_ID=your_service_id
+  // VITE_EMAILJS_TEMPLATE_ID=your_template_id
+  // VITE_EMAILJS_PUBLIC_KEY=your_public_key
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -38,11 +48,51 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    // Validate that env vars are present (helps debugging in dev)
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      const msg = 'Email not available right now.';
+      console.warn(msg);
+      setError(msg);
+      return;
+    }
+
+    setError(null);
+    setSending(true);
+
+    send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      PUBLIC_KEY
+    )
+      .then((response) => {
+        setError(null);
+        alert('Message sent — thank you!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((err) => {
+        console.error('Email send error:', err);
+        let msg = 'Failed to send message.';
+        if (err && typeof err === 'object') {
+          if (err.status) msg += ` (status: ${err.status})`;
+          if (err.text) msg += `: ${err.text}`;
+          else if (err.message) msg += `: ${err.message}`;
+        } else if (typeof err === 'string') {
+          msg += `: ${err}`;
+        }
+        setError(msg);
+      })
+      .finally(() => setSending(false));
   };
+
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
 
   const contactInfo = [
     {
@@ -207,11 +257,16 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center space-x-2 group"
+                disabled={sending}
+                aria-busy={sending}
+                className="w-full btn-primary flex items-center justify-center space-x-2 group disabled:opacity-60"
               >
                 <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                <span>Send Message</span>
+                <span>{sending ? 'Sending...' : 'Send Message'}</span>
               </button>
+              {error && (
+                <p className="text-sm text-red-400 mt-3">{error}</p>
+              )}
             </form>
           </div>
         </div>

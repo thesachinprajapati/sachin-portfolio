@@ -2,6 +2,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  Instagram,
   Heart,
   Eye,
   Globe,
@@ -22,11 +23,11 @@ const Footer = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const elements = document.querySelectorAll(
-      ".scroll-animate, .scroll-animate-left, .scroll-animate-right"
+      ".scroll-animate, .scroll-animate-left, .scroll-animate-right",
     );
     elements.forEach((el) => observer.observe(el));
 
@@ -39,9 +40,22 @@ const Footer = () => {
   const { ip, visitorCount, loading } = useVisitorInfo();
 
   const socialLinks = [
-    { icon: <Github size={20} />, href: "#", label: "GitHub" },
+    {
+      icon: <Github size={20} />,
+      href: "https://github.com/thesachinprajapati",
+      label: "GitHub",
+    },
     { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Mail size={20} />, href: "#", label: "Email" },
+    {
+      icon: <Mail size={20} />,
+      href: "mailto:sachink09053@gmail.com",
+      label: "Email",
+    },
+    {
+      icon: <Instagram size={20} />,
+      href: "https://www.instagram.com/the_sachin_prajapati/",
+      label: "Instagram",
+    },
   ];
 
   const quickLinks = [
@@ -96,20 +110,22 @@ const Footer = () => {
             </p>
             <div className="flex ">
               <Magnet padding={50} disabled={false} magnetStrength={50}>
-              <div className="flex gap-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/15 rounded-full">
-                {socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    aria-label={link.label}
-                    className="group relative flex items-center justify-center p-2 text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:-translate-y-1 hover:scale-110">
-                    {link.icon}
-                    <span className="absolute bottom-full mb-2 px-2 py-1 text-xs text-white bg-black/80 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                      {link.label}
-                    </span>
-                  </a>
-                ))}
-              </div>
+                <div className="flex gap-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/15 rounded-full">
+                  {socialLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.href}
+                      aria-label={link.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center justify-center p-2 text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:-translate-y-1 hover:scale-110">
+                      {link.icon}
+                      <span className="absolute bottom-full mb-2 px-2 py-1 text-xs text-white bg-black/80 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        {link.label}
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </Magnet>
             </div>
           </div>
