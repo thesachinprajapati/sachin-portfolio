@@ -98,19 +98,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "sachink09053@gmail.com",
+      value: "sachiXXXXXX@gmail.com",
       link: "mailto:sachink09053@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: "+91 7091048449",
+      value: "+91 7XXXXXXXX9",
       link: "tel:+917091048449"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: "Bokaro Steel City",
+      value: "JHARKHAND",
       link: "#"
     }
   ];

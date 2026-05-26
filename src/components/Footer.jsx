@@ -48,7 +48,7 @@ const Footer = () => {
     { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
     {
       icon: <Mail size={20} />,
-      href: "mailto:sachink09053@gmail.com",
+      href: "mailto:sachinXXXXXX@gmail.com",
       label: "Email",
     },
     {
@@ -151,9 +151,9 @@ const Footer = () => {
               Get In Touch
             </h4>
             <div className="space-y-2 text-gray-400">
-              <p>Bokaro Steel City</p>
-              <p className="text-blue-400">sachink09053@gmail.com</p>
-              <p>+91 7091048449</p>
+              <p>JHARKHAND</p>
+              <p className="text-blue-400">sachinXXXXXX@gmail.com</p>
+              <p>+91 7XXXXXXXX9</p>
             </div>
             <div className="pt-4">
               <p className="text-sm text-gray-400">
